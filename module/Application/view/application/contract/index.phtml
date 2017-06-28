@@ -1,0 +1,26 @@
+<div class="row col m3">
+	<div class="collection with-header">
+	<h5 class="collection-header">Действия</h5>
+	<a class="collection-item" href="<?php echo $this->url('home')?>">Назад</a>
+	
+	</div>
+</div>
+<div class="row col m9">
+	 <div class="collection with-header">
+        <div class="collection-header teal white-text row">
+          	  <span class="col m2">Договор №</span>
+              <span class="col m2">Тип</span>
+              <span class="col m3">Начална дата</span>
+              <span class="col m3">Крайна дата</span>
+              <span class="col m2"><a class="btn amber" href="<?php echo $this->url('Contract',array('action'=>'add'))?>">Нов</a>
+        </div>
+        <?php foreach ($data as $contract):?>
+          <a class="collection-item row" href="<?php echo $this->url('Contract',array('action'=>'view','id'=>$contract['contract_id']))?>">
+              <span class="col m2"><?php echo $contract['contract_id']?> </span>
+              <span class="col m2"><?php echo $contract['type']?> </span>
+              <span class="col m3"><?php echo $contract['start_date']?> </span>
+              <span class="col m3"><?php echo $contract['end_date']?> </span>
+          </a>
+          <?php endforeach;?>
+     </div>
+</div>

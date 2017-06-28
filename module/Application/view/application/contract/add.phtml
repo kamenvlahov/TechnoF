@@ -1,0 +1,52 @@
+<div class="row col m3">
+	<div class="collection with-header">
+	<h5 class="collection-header">Добавяне на договор</h5>
+	<a class="collection-item" href="<?php echo $this->url('Contract')?>">Договори</a>
+	</div>
+</div>
+<div class="row col m9">
+	<div class="row black-text container">
+	<h4>Добавяне на договор</h4>
+	<?php if (isset($form)): ?>
+		<?php $form->prepare();?>
+		<?php echo $this->form()->openTag($form);?>
+    		 <?php foreach ($form->getElements() as $element):?>
+    		 <?php $attributes = $element->getAttributes();?>
+    		 <?php if ($attributes && $attributes['type']=='submit'):?>
+    		 
+    		   <a class="btn" href="<?php echo $url?>">Затвори</a>
+    		   <?php echo $this->form_row($element);?>
+    		
+    		 <?php elseif($attributes && $attributes['type']=='checkbox'):?>
+                <p>
+                  <?php echo $this->formelement($element);?>
+                  <label for="<?php $attributes['id']?>"> <?php echo $element->getLabel();?></label>
+                </p>
+    		 <?php else:?>
+    			<?php echo $this->form_row($element);?>
+    		 <?php endif;?>
+             <?php endforeach;?>
+             
+		<?php echo $this->form()->closeTag();?>	
+    <?php endif; ?>
+</div>
+</div>
+		<script>
+		$('select').material_select();
+		$('.datepicker').pickadate({
+		    selectMonths: true, // Creates a dropdown to control month
+		    selectYears: 15 ,// Creates a dropdown of 15 years to control year
+		    format: 'yyyy-mm-dd'
+		  });
+       /*  $('select').change(function(){
+            var data= $(this).val();
+            if(data=='rent'){
+            	$('#price').hide();
+				$('#rent').show();
+                }else{
+               	$('#rent').hide();
+               	$('#price').show();
+                }           
+          }); */
+        
+        </script>

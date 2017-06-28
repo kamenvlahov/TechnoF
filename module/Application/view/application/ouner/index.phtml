@@ -1,0 +1,53 @@
+<div class="col m3 s12">
+	<div class="collection with-header">
+		<a class="collection-item" href="<?php echo $this->url('home')?>">Начало</a>
+		<a class="collection-item" href="<?php echo $this->url('Property')?>">
+    	 Справка имоти
+    	</a>
+    	<a class="collection-item" href="<?php echo $this->url('Contract')?>">
+    	Договори
+    	</a>
+	</div>
+</div>
+<div class="col m9 s12">
+<div class="collection with-header container">
+<?php foreach ($data as $info):?>
+	<div class="collection-header row teal white-text">
+	<div class="col m12 row">
+	договор № <?php echo $info['ctr_id']?> <?php echo $info['start_date']?>/<?php echo $info['end_date']?>
+	</div>
+	</div>
+	<div class="collection-item row">
+	<div class="col m12">
+	имот № <?php echo $info['property_id']?> 
+	</div>
+	<div class="col m4">
+	Площ
+	</div>
+	<div class="col m4">
+	Площ по идеални части
+	</div>
+	<div class="col m4">
+	Дължима рента общо за имота
+	</div>
+	<div class="col m4">
+	<?php echo $info['area']?> декара
+	</div>
+	<div class="col m4">
+	<?php echo $info['area']*($info['part']/100)?> декара
+	</div>
+	<div class="col m4">
+	<?php echo $info['area']*$info['rent']?> лв.
+	</div>
+	</div>
+	<div class="collection-item row">
+	<div class="col m6 row">
+	Собственик: <?php echo $info['name']?>
+	</div>
+	<div class="col m6 row">
+	Дължима рента <?php echo $info['area']*($info['part']/100)*$info['rent']?> лв.
+	</div>
+	</div>
+<?php endforeach;?>
+</div>
+</div>

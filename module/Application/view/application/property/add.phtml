@@ -1,0 +1,49 @@
+<div class="row col m3">
+	<div class="collection with-header">
+	<h5 class="collection-header">Добавяне на имот Към договор №<?php echo $contractInfo['contract_id']?>
+	<?php echo $contractInfo['type']?>
+	</h5>
+	<a class="collection-item" href="<?php echo $this->url('Contract')?>">Договори</a>
+	</div>
+</div>
+<div class="row col m9">
+	<div class="row black-text container">
+	<h4>Добавяне на имот</h4>
+	<?php if (isset($form)): ?>
+		<?php echo $this->partial('/partial/form.phtml',array('form'=>$form,'url'=>$this->url('Property')));?>
+    <?php endif; ?>
+</div>
+<?php if(isset($propertyInfo)):?>
+    <div class="collection with-header container">
+    	<h5 class="collection-header teal white-text">Имот № <?php $propertyInfo['property_id']?></h5>
+    </div>
+<?php endif;?>
+<?php if (isset($ounerInfo)):?>
+    <div class="collection with-header container">
+    	<h5 class="collection-header teal white-text">Списък със собственици</h5>
+        <?php foreach ($ounerInfo as $info):?>
+        <?php if ($info['property_id'])?>
+        <a class="collection-item">	<?php echo $info['name'];?> <?php echo $info['property_id']?></a>
+        <?php endforeach;?>
+    </div>
+<?php endif;?>
+</div>
+		<script>
+		$('select').material_select();
+		$('.datepicker').pickadate({
+		    selectMonths: true, // Creates a dropdown to control month
+		    selectYears: 15 ,// Creates a dropdown of 15 years to control year
+		    format: 'yyyy-mm-dd'
+		  });
+       /*  $('select').change(function(){
+            var data= $(this).val();
+            if(data=='rent'){
+            	$('#price').hide();
+				$('#rent').show();
+                }else{
+               	$('#rent').hide();
+               	$('#price').show();
+                }           
+          }); */
+        
+        </script>

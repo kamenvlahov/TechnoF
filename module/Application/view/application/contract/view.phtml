@@ -1,0 +1,20 @@
+<div class="row col m3">
+	<div class="collection with-header">
+	<h5 class="collection-header">Действия</h5>
+	<a class="collection-item" href="<?php echo $this->url('Contract')?>">Назад</a>
+	<a class="collection-item" href="<?php echo $this->url('Contract',array('action'=>'edit','id'=>$contractInfo['contract_id']))?>">Редакция</a>
+	</div>
+</div>
+<div class="row col m9">
+	<div class="collection with-header">
+		<div class="collection-header row">
+		<?php echo $contractInfo['contract_id']?>
+		</div>
+		<h5 class="collection-header">Имоти <a class="btn amber right" href="<?php echo $this->url('Property',array('action'=>'add','id'=>$contractInfo['contract_id']))?>">Нов</a></h5>
+		<?php foreach ($propertyData as $property):?>
+		<a class="collection-item row" href="<?php echo $this->url('Property',array('action'=>'view','id'=>$property['property_id']))?>">
+		<?php echo $property['property_id']?>
+		</a>
+		<?php endforeach;?>
+	</div>
+</div>

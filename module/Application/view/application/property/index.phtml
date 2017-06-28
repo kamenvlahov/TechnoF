@@ -1,0 +1,47 @@
+<div class="col m3 s12">
+	<div class="collection with-header">
+		<a class="collection-item" href="<?php echo $this->url('home')?>">Начало</a>
+		<a class="collection-item" href="<?php echo $this->url('Ouner')?>">
+    	 Справка потребители
+    	</a>
+    	<a class="collection-item" href="<?php echo $this->url('Contract')?>">
+    	Договори
+    	</a>
+	</div>
+</div>
+<div class="col m9 s12">
+<div class="collection with-header container">
+<div class="collection-header row teal white-text">
+    <div class="col m3">
+    	Договор №
+    </div>
+    <div class="col m3">
+        Дата на закупуване
+    </div>
+    <div class="col m3">
+    	Площ
+    </div>
+    <div class="col m3">
+    	Цена
+    </div>
+    
+</div>
+<?php foreach ($data as $info):?>
+<div class="collection-item row">
+    <div class="col m3">
+    	<?php echo $info['ctr_id']?>
+    </div>
+    <div class="col m3">
+    	<?php echo $info['start_date']?>
+    </div>
+    <div class="col m3">
+    	<?php echo $info['area']?> дка.
+    </div>
+    <div class="col m3">
+    	<?php echo $info['area']* $info['price'];?> лв.
+    </div>
+    
+</div>
+<?php endforeach;?>
+</div>
+</div>

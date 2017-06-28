@@ -1,0 +1,20 @@
+<div class="row col m3">
+	<div class="collection with-header">
+	<h5 class="collection-header">Редакция на договор</h5>
+	<a class="collection-item" href="<?php echo $this->url('Contract')?>">Договори</a>
+	</div>
+</div>
+<div class="row col m9">
+	<div class="row black-text container">
+	<h4>Редакция на договор</h4>
+	<?php echo $this->partial('/partial/form.phtml',array('form'=>$form,'url'=>$this->url('Contract')));?>
+</div>
+</div>
+		<script>
+		$('select').material_select();
+		$('.datepicker').pickadate({
+		    selectMonths: true, // Creates a dropdown to control month
+		    selectYears: 15 ,// Creates a dropdown of 15 years to control year
+		    format: 'yyyy-mm-dd'
+		  });
+        </script>

@@ -1,0 +1,33 @@
+<div class="row col m3">
+	<div class="collection with-header">
+		<a class="collection-item" href="<?php echo $this->url('Contract')?>">Договори</a>
+		<a class="collection-item" href="<?php echo $this->url('Contract',array('action'=>'view','id'=>$propertyInfo['ctr_id']))?>">
+    	Договор №<?php echo $propertyInfo['ctr_id']?>
+    	</a>
+	</div>
+</div>
+<div class="row col m9">
+<?php if(isset($propertyInfo)):?>
+    <div class="collection with-header container">
+    	<h5 class="collection-header teal white-text">Имот № <?php echo $propertyInfo['property_id']?></h5>
+    </div>
+<?php endif;?>
+<?php if (isset($listOuners)):?>
+    <div class="collection with-header container">
+    	<h5 class="collection-header teal white-text">Собственици</h5>
+    	 <h6 class="collection-header">Списък собственици на имот№ <?php echo $propertyInfo['property_id']?></h6>
+         <?php foreach ($listOuners as $ouner):?>
+        	<?php if ($ouner['property_id']==$propertyInfo['property_id']):?>
+            	<a class="collection-item">	<?php echo $ouner['name'];?> <?php echo $ouner['part']?> %</a>
+           <?php endif;?> 
+         <?php endforeach;?>
+    </div>
+<?php endif;?>
+</div>
+
+		<script>
+		$(".ouner").click(function(){
+			var ouner_id=$(this).attr('id');
+			$('#reg_form').submit();
+			})
+        </script>
